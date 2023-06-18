@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class BoatMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Rigidbody2D rb;
+    [SerializeField] float boatSpeed = 5f;
+    [SerializeField] float rotationSpeed = 5f;
+   // Vector3 boatPos;
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Rotation();
+        Movement();
+    }
+
+    private void Movement()
+    {
+        // boatPos = new Vector3(0, forwardMovement) * boatSpeed;
+        float forwardMovement = Input.GetAxis("Vertical");
+        rb.velocity = transform.up * forwardMovement;
+    }
+
+    private void Rotation()
+    {
+        float rotation = Input.GetAxis("Horizontal");
+        transform.Rotate(new Vector3(0, 0, -rotation * rotationSpeed));
     }
 }
