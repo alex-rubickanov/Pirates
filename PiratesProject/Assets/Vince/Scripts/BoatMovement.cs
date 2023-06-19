@@ -7,7 +7,7 @@ public class BoatMovement : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] float boatSpeed = 5f;
     [SerializeField] float rotationSpeed = 5f;
-   // Vector3 boatPos;
+     Vector3 boatPos;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -16,7 +16,7 @@ public class BoatMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Rotation();
+       // Rotation();
         Movement();
     }
 
@@ -24,7 +24,11 @@ public class BoatMovement : MonoBehaviour
     {
         // boatPos = new Vector3(0, forwardMovement) * boatSpeed;
         float forwardMovement = Input.GetAxis("Vertical");
-        rb.velocity = transform.up * forwardMovement;
+        float horizontalMovement = Input.GetAxis("Horizontal");
+
+        boatPos = new Vector3(horizontalMovement, forwardMovement);
+
+        rb.velocity = boatPos * boatSpeed;
     }
 
     private void Rotation()
