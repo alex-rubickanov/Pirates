@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoatMovement : MonoBehaviour
 {
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     [SerializeField] float boatSpeed = 5f;
     [SerializeField] float rotationSpeed = 5f;
      Vector3 boatPos;
@@ -17,10 +17,10 @@ public class BoatMovement : MonoBehaviour
     void Update()
     {
        // Rotation();
-        Movement();
+        //Movement();
     }
 
-    private void Movement()
+   public void Movement()
     {
         // boatPos = new Vector3(0, forwardMovement) * boatSpeed;
         float forwardMovement = Input.GetAxis("Vertical");

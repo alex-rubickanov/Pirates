@@ -133,10 +133,10 @@ GameObject:
   m_Component:
   - component: {fileID: 38796365}
   - component: {fileID: 38796366}
-  - component: {fileID: 38796367}
   - component: {fileID: 38796368}
+  - component: {fileID: 38796367}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,6 +219,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0d35df40f40144282620baf823f249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boatSpeed: 5
+  rotationSpeed: 5
+  bm: {fileID: 0}
+  boat: 0
 --- !u!50 &38796368
 Rigidbody2D:
   serializedVersion: 4
@@ -375,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4578718323f9be4baf4d6c010c78623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   boatSpeed: 5
   rotationSpeed: 0.1
 --- !u!212 &1244154092
@@ -469,8 +474,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253462517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.243, z: 0}
-  m_LocalScale: {x: 0.344375, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.67, z: 0}
+  m_LocalScale: {x: 0.344375, y: 0.3575, z: 1}
   m_Children: []
   m_Father: {fileID: 1244154093}
   m_RootOrder: 0
