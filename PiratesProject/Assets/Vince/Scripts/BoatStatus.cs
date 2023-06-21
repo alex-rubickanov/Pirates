@@ -19,4 +19,11 @@ public class BoatStatus : MonoBehaviour
         randomHoles.SpawnHole();
         boatHealth -= damage;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "EnemyBullet") {
+            Destroy(collision.gameObject);
+        }
+    }
 }

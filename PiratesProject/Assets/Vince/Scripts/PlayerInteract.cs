@@ -23,6 +23,9 @@ public class PlayerInteract : MonoBehaviour
         CheckControls();
         BoatInteraction();
         CanonInteraction();
+       // MovementEnabler();
+
+        Debug.Log(doingSomething);
     }
     private void CheckControls()
     {
@@ -46,9 +49,9 @@ public class PlayerInteract : MonoBehaviour
         {
             if (Input.GetKeyDown(interactKey) && !doingSomething)
             {
+                movement.enabled = false;
                 doingSomething = true;
                 boatMovement.enabled = true;
-                movement.enabled = false;
                 movement.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             }
             else if (Input.GetKeyDown(interactKey) && doingSomething)
@@ -70,16 +73,23 @@ public class PlayerInteract : MonoBehaviour
             {
                 doingSomething = true;
                 canonScript.enabled = true;
-                movement.enabled = false;
             }
             else if (Input.GetKeyDown(interactKey) && doingSomething)
             {
                 doingSomething = false;
                 canonScript.enabled = false;
-                movement.enabled = true;
                 canonScript = null;
 
             }
+        }
+    }
+
+    private void MovementEnabler()
+    {
+        if(doingSomething) {
+            movement.enabled = false;
+        } else {
+            movement.enabled = true;
         }
     }
 
