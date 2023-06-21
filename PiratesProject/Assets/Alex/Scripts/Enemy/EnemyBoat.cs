@@ -41,7 +41,7 @@ public class EnemyBoat : MonoBehaviour
     private void Move()
     {
         var step = moveSpeed * Time.deltaTime;
-        rb.velocity = -Vector3.MoveTowards(transform.position, playerBoat.transform.position, step);
+        rb.velocity = Vector3.MoveTowards(transform.position, playerBoat.transform.position, step);
     }
 
     private void Shoot()
