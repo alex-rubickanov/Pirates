@@ -22,7 +22,11 @@ public class EnemyBoat : MonoBehaviour
     [SerializeField] private int amountOfBullets;
     private float currentTime;
     private float timer;
-    
+    private float health = 100;
+
+    private EnemyManager enemyManager;
+
+    bool side;
 
 
     private enum States
@@ -34,10 +38,17 @@ public class EnemyBoat : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        enemyManager = GetComponentInParent<EnemyManager>();
+        if(leftOrRight > 0) {
+            side = true;
+        } else {
+            side = false;
+        }
     }
 
     private void Update()
     {
+        CheckDeath();
         state = IsOnLineWithPlayerBoat();
         Debug.Log(state);
         transform.position = new Vector3(playerBoat.transform.position.x + leftOrRight, transform.position.y, transform.position.z);
@@ -86,12 +97,34 @@ public class EnemyBoat : MonoBehaviour
     }
 
     private States IsOnLineWithPlayerBoat()
-        {
-            if (transform.position.y - playerBoat.transform.position.y < -2
-            || transform.position.y - playerBoat.transform.position.y > 2) {
-                return States.Moving;
-            } else {
-                return States.Shooting;
-            }
+    {
+        if (transform.position.y - playerBoat.transform.position.y < -2
+        || transform.position.y - playerBoat.transform.position.y > 2) {
+            return States.Moving;
+        } else {
+             return States.Shooting;
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "PlayerBullet") {
+            health -= 20;
+            Destroy(collision.gameObject);
         }
     }
+
+    private void CheckDeath()
+    {
+        if (health <= 0) {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        enemyManager.SpawnEnemy(side);
+    }
+}
+

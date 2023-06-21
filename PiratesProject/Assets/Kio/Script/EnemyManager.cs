@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] private int maxEnemiesAmount;
-    [SerializeField] private int enemyCount;
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject leftEnemyPrefab;
+    [SerializeField] private GameObject rightEnemyPrefab;
 
-    private void Update()
+    private void Start()
     {
-        if (enemyCount < maxEnemiesAmount)
-        {
-            SpawnEnemy();
-        }
+        SpawnEnemy(true);
+        SpawnEnemy(false);
     }
-
-    private void SpawnEnemy()
+    public void SpawnEnemy(bool leftOrRight)
     {
-        Instantiate(enemyPrefab);
-        enemyCount++;
+        StartCoroutine(SpawnEnemyC(leftOrRight));
+    }
+    private IEnumerator SpawnEnemyC(bool leftOrRight)
+    {
+        yield return new WaitForSeconds(4f);
+
+        if(leftOrRight) {
+            Instantiate(rightEnemyPrefab, this.transform);
+        } else {
+            Instantiate(leftEnemyPrefab, this.transform);
+        }
     }
 }
