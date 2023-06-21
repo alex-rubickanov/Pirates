@@ -19,7 +19,6 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         MovementHandler();
-        Debug.Log(rb.velocity.normalized);
     }
     
     private void MovementHandler()
