@@ -30,7 +30,7 @@ public class BoatMovement2 : MonoBehaviour
         float forwardMovement = Input.GetAxis(playerRole + "Vertical");
         float horizontalMovement = Input.GetAxis(playerRole + "Horizontal");
         boatPos = new Vector3(horizontalMovement, forwardMovement);
-        rb.velocity = boatPos * boatSpeed;
+        rb.velocity = -boatPos * boatSpeed;
     }
 
     private void OnDisable()
