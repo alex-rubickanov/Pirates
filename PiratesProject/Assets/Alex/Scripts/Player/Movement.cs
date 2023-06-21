@@ -27,6 +27,7 @@ public class Movement : MonoBehaviour
         movement.y = Input.GetAxis(inputHandler.GetPlayerRole() + "Vertical");
 
         rb.velocity = movement.normalized * moveSpeed;
+
     }
 
     public Vector2 GetVelocity()
