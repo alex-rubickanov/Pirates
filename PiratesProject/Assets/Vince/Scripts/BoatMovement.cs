@@ -7,6 +7,7 @@ public class BoatMovement : MonoBehaviour
     public Rigidbody2D rb;
     [SerializeField] float boatSpeed = 5f;
     Vector3 boatPos;
+    public bool enableDriving;
 
     public string playerRole;
     void Start()
@@ -17,7 +18,11 @@ public class BoatMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        if (enableDriving)
+        {
+            Movement();
+
+        }
     }
 
     public void Movement()
@@ -30,6 +35,12 @@ public class BoatMovement : MonoBehaviour
 
     private void OnDisable()
     {
+        enableDriving = false;
         rb.velocity = Vector3.zero;
+    }
+
+    private void OnEnable()
+    {
+        enableDriving =true;
     }
 }

@@ -92,14 +92,22 @@ public class PlayerInteract : MonoBehaviour
         if (collision.gameObject.tag == "Wheel")
         {
             boatMovement = collision.gameObject.GetComponentInParent<BoatMovement>();
-            boatMovement.playerRole = inputHandler.GetPlayerRole();
+
+            if (!boatMovement.enableDriving)
+            {
+                boatMovement.playerRole = inputHandler.GetPlayerRole();
+            }
         }
 
         if(collision.tag == "Canon")
         {
             canonScript = collision.gameObject.GetComponent<CannonScript>();
-            canonScript.CheckControls(inputHandler.GetPlayerRole());
-            canonScript.playerRole = inputHandler.GetPlayerRole();
+
+            if (!canonScript.enableCannon)
+            {
+                canonScript.CheckControls(inputHandler.GetPlayerRole());
+                canonScript.playerRole = inputHandler.GetPlayerRole();
+            }
         }
     }
 
