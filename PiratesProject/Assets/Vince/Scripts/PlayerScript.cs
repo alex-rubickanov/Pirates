@@ -5,33 +5,52 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     Rigidbody2D rb;
-    Vector3 pos;
-
+    [SerializeField] float boatSpeed = 5f;
+    [SerializeField] float rotationSpeed = 5f;
+    [SerializeField] BoatMovement bm;
+    Vector3 boatPos;
+    [SerializeField] bool boat;
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>();
+        bm = GetComponentInParent<BoatMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.I))
+        // Rotation();
+
+        if (Input.GetKeyDown(KeyCode.F) && !boat)
         {
-            transform.position += Vector3.up * 2f * Time.deltaTime;
+            boat = true;
         }
-        else if (Input.GetKey(KeyCode.K))
+        else if(Input.GetKeyDown(KeyCode.F) && boat)
         {
-            transform.position += -Vector3.up * 2f * Time.deltaTime;
-        }else if (Input.GetKey(KeyCode.L))
+
+            boat = false;
+        }
+
+        if (!boat)
         {
-            transform.position += Vector3.right * 2f * Time.deltaTime;
-        }else if (Input.GetKey(KeyCode.J))
-        {
-            transform.position += -Vector3.right * 2f * Time.deltaTime;
+            Movement();
+            bm.rb.velocity = Vector2.zero;
         }
         else
         {
-            transform.position = transform.position;
+            bm.Movement();
         }
     }
+
+    private void Movement()
+    {
+        // boatPos = new Vector3(0, forwardMovement) * boatSpeed;
+        float forwardMovement = Input.GetAxis("Vertical");
+        float horizontalMovement = Input.GetAxis("Horizontal");
+
+        boatPos = new Vector3(horizontalMovement, forwardMovement);
+
+        rb.velocity = boatPos * boatSpeed;
+    }
+
 }
