@@ -27,8 +27,11 @@ public class CannonScript : MonoBehaviour
 
     void Update()
     {
-        CanonRotation();
-        CanonShoot();
+        if (enableCannon)
+        {
+            CanonRotation();
+            CanonShoot();
+        }
     }
 
     public void CheckControls(string playerRole)

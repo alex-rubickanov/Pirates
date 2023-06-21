@@ -381,6 +381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   boatSpeed: 3
+  enableDriving: 0
   playerRole: 
 --- !u!212 &414857757
 SpriteRenderer:
@@ -662,7 +663,7 @@ GameObject:
   - component: {fileID: 967534127}
   - component: {fileID: 967534126}
   - component: {fileID: 967534125}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerVisual1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -930,7 +931,7 @@ GameObject:
   - component: {fileID: 1578146336}
   - component: {fileID: 1578146335}
   - component: {fileID: 1578146334}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1552,7 +1553,7 @@ GameObject:
   - component: {fileID: 4545995073738642428}
   - component: {fileID: 4545995073738642429}
   - component: {fileID: 4545995073738642418}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerVisual1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1607,7 +1608,7 @@ GameObject:
   - component: {fileID: 4545995073740680194}
   - component: {fileID: 4545995073740680196}
   - component: {fileID: 4545995073740680197}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
