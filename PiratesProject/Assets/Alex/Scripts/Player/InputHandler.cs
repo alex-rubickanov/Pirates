@@ -12,9 +12,9 @@ public class InputHandler : MonoBehaviour
 
     public enum PlayerRole
     {
-        Player1,
-        Player2,
-        Player3
+        WASD,
+        ARROWS,
+        JOYSTICK
     }
 
     private void Awake()
@@ -24,13 +24,13 @@ public class InputHandler : MonoBehaviour
     private void CheckPlayerRole()
     {
         switch (playerNum) {
-            case PlayerRole.Player1:
+            case PlayerRole.WASD:
                 playerRole = "P1_";
                 break;
-            case PlayerRole.Player2:
+            case PlayerRole.ARROWS:
                 playerRole = "P2_";
                 break;
-            case PlayerRole.Player3:
+            case PlayerRole.JOYSTICK:
                 playerRole = "P3_";
                 break;
         }

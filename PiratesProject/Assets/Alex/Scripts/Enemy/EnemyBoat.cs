@@ -7,27 +7,49 @@ public class EnemyBoat : MonoBehaviour
     [SerializeField] private GameObject playerBoat;
     [SerializeField] private float distanceToShoot;
     [SerializeField] private float moveSpeed;
+    [SerializeField] private States state;
+    private enum States
+    {
+        Moving,
+        Shooting
+    }
 
     private void Update()
     {
-        if (!Move()) {
-            Shoot();
+        state = IsOnLineWithPlayerBoat();
+
+        switch (state) {
+            case States.Moving:
+                Move();
+                break;
+            case States.Shooting:
+                Shoot();
+                break;
         }
     }
 
-    private bool Move()
+    private void Move()
     {
-        var step = Time.deltaTime * moveSpeed;
-
-        if(Vector3.Distance(transform.position, playerBoat.transform.position) > distanceToShoot) {
-            transform.position = Vector3.MoveTowards(transform.position, playerBoat.transform.position, step);
-            return true;
+        if(transform.position.y != playerBoat.transform.position.y) {
+            if(transform.position.y > playerBoat.transform.position.y) {
+                transform.position -= Time.deltaTime * Vector3.up * moveSpeed;
+            } else if (transform.position.y < playerBoat.transform.position.y) {
+                transform.position += Time.deltaTime * Vector3.up * moveSpeed;
+            }
         }
-        return false;
     }
 
     private void Shoot()
     {
         Debug.Log("Shoot");
+    }
+
+    private States IsOnLineWithPlayerBoat()
+    {
+        if(transform.position.y == playerBoat.transform.position.y) {
+            return States.Moving;
+        } else {
+            return States.Shooting;
+        }
     }
 }

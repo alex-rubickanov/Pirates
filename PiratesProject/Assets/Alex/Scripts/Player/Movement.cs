@@ -28,4 +28,9 @@ public class Movement : MonoBehaviour
 
         rb.velocity = movement.normalized * moveSpeed;
     }
+
+    public Vector2 GetVelocity()
+    {
+        return rb.velocity.normalized;
+    }
 }
