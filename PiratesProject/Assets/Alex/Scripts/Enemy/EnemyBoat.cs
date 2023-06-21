@@ -11,7 +11,6 @@ public class EnemyBoat : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private States state;
     private Rigidbody2D rb;
-    [SerializeField] private float timeToWait;
     private enum States
     {
         Moving,
@@ -23,11 +22,11 @@ public class EnemyBoat : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         state = IsOnLineWithPlayerBoat();
         Debug.Log(state);
-
+        transform.position = new Vector3(playerBoat.transform.position.x + 10f, transform.position.y, transform.position.z);
         switch (state) {
             case States.Moving:
                 Move();
@@ -40,21 +39,27 @@ public class EnemyBoat : MonoBehaviour
 
     private void Move()
     {
-        var step = moveSpeed * Time.deltaTime;
-        rb.velocity = Vector3.MoveTowards(transform.position, playerBoat.transform.position, step);
+         
+        if (transform.position.y > playerBoat.transform.position.y) {
+             transform.position -= Time.deltaTime * Vector3.up * moveSpeed;
+        } else if (transform.position.y < playerBoat.transform.position.y) {
+            transform.position += Time.deltaTime * Vector3.up * moveSpeed;
+        }
+        
     }
 
     private void Shoot()
     {
-        rb.velocity = Vector3.zero;
+
     }
 
     private States IsOnLineWithPlayerBoat()
-    {
-        if(Vector3.Distance(transform.position, playerBoat.transform.position) > distanceToShoot) {
-            return States.Moving;
-        } else {
-            return States.Shooting;
+        {
+            if (transform.position.y - playerBoat.transform.position.y < -2
+            || transform.position.y - playerBoat.transform.position.y > 2) {
+                return States.Moving;
+            } else {
+                return States.Shooting;
+            }
         }
     }
-}
