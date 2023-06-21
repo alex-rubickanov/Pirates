@@ -8,7 +8,7 @@ public class PlayerInteract : MonoBehaviour
     Movement movement;
     InputHandler inputHandler;
 
-    [SerializeField] BoatMovement boatMovement;
+    [SerializeField] BoatMovement2 boatMovement;
     [SerializeField] CannonScript canonScript;
     [SerializeField] bool doingSomething;
     [SerializeField] KeyCode interactKey;
@@ -50,11 +50,9 @@ public class PlayerInteract : MonoBehaviour
                 boatMovement.enabled = true;
                 movement.enabled = false;
                 movement.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                movement.GetComponent<Rigidbody2D>().simulated = false;
             }
             else if (Input.GetKeyDown(interactKey) && doingSomething)
             {
-                movement.GetComponent<Rigidbody2D>().simulated = true;
                 doingSomething = false;
                 boatMovement.enabled = false;
                 movement.enabled = true;
@@ -73,11 +71,9 @@ public class PlayerInteract : MonoBehaviour
                 doingSomething = true;
                 canonScript.enabled = true;
                 movement.enabled = false;
-                movement.GetComponent<Rigidbody2D>().simulated = false;
             }
             else if (Input.GetKeyDown(interactKey) && doingSomething)
             {
-                movement.GetComponent<Rigidbody2D>().simulated = true;
                 doingSomething = false;
                 canonScript.enabled = false;
                 movement.enabled = true;
@@ -91,7 +87,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wheel")
         {
-            boatMovement = collision.gameObject.GetComponentInParent<BoatMovement>();
+            boatMovement = collision.gameObject.GetComponentInParent<BoatMovement2>();
 
             if (!boatMovement.enableDriving)
             {
