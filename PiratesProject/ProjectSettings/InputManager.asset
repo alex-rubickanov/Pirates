@@ -25,10 +25,10 @@ InputManager:
     m_Name: BoatHorizontal
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: left
-    positiveButton: right
-    altNegativeButton: a
-    altPositiveButton: d
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -57,10 +57,10 @@ InputManager:
     m_Name: BoatVertical
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: down
-    positiveButton: up
-    altNegativeButton: s
-    altPositiveButton: w
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -649,8 +649,8 @@ InputManager:
     m_Name: P3_Interact
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: joystick button 0
-    positiveButton: right
+    negativeButton: 
+    positiveButton: joystick button 0
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -659,5 +659,5 @@ InputManager:
     snap: 0
     invert: 0
     type: 0
-    axis: 5
+    axis: 0
     joyNum: 1
