@@ -15,10 +15,6 @@ public class gameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(boatHP == 0)
-        {
-            SceneManager.LoadScene(3);
-
-        }
+        
     }
 }
