@@ -6,8 +6,10 @@ public class BoatMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
     [SerializeField] float boatSpeed = 5f;
-    [SerializeField] float rotationSpeed = 5f;
-     Vector3 boatPos;
+    Vector3 boatPos;
+    public bool enableDriving;
+
+    public string playerRole;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -16,24 +18,29 @@ public class BoatMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // Rotation();
-        //Movement();
+        if (enableDriving)
+        {
+            Movement();
+
+        }
     }
 
-   public void Movement()
+    public void Movement()
     {
-        // boatPos = new Vector3(0, forwardMovement) * boatSpeed;
-        float forwardMovement = Input.GetAxis("Vertical");
-        float horizontalMovement = Input.GetAxis("Horizontal");
-
+        float forwardMovement = Input.GetAxis(playerRole+"Vertical");
+        float horizontalMovement = Input.GetAxis(playerRole+"Horizontal");
         boatPos = new Vector3(horizontalMovement, forwardMovement);
-
         rb.velocity = boatPos * boatSpeed;
     }
 
-    private void Rotation()
+    private void OnDisable()
     {
-        float rotation = Input.GetAxis("Horizontal");
-        transform.Rotate(new Vector3(0, 0, -rotation * rotationSpeed));
+        enableDriving = false;
+        rb.velocity = Vector3.zero;
+    }
+
+    private void OnEnable()
+    {
+        enableDriving =true;
     }
 }
