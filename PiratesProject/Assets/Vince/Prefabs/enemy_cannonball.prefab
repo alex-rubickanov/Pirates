@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1363304031425249258}
   - component: {fileID: 1363304031425249259}
   - component: {fileID: 9161648487043488676}
+  - component: {fileID: -8123519023899986320}
   m_Layer: 7
   m_Name: enemy_cannonball
   m_TagString: EnemyBullet
@@ -121,3 +122,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.22999999
+--- !u!114 &-8123519023899986320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363304031425249236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280d2bf1ac186714f80f51c9289f5c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0.3
+  playExplosion: 0

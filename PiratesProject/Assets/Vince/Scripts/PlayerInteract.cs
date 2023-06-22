@@ -23,9 +23,8 @@ public class PlayerInteract : MonoBehaviour
         CheckControls();
         BoatInteraction();
         CanonInteraction();
-       // MovementEnabler();
+        MovementEnabler();
 
-        Debug.Log(doingSomething);
     }
     private void CheckControls()
     {
@@ -33,11 +32,11 @@ public class PlayerInteract : MonoBehaviour
         {
             interactKey = KeyCode.LeftControl;
         }
-        else if (inputHandler.GetPlayerRole() == "P1_")
+        else if (inputHandler.GetPlayerRole() == "P2_")
         {
             interactKey = KeyCode.RightControl;
         }
-        else
+        else if((inputHandler.GetPlayerRole() == "P3_"))
         {
             interactKey = KeyCode.Joystick1Button0;
         }
@@ -49,7 +48,6 @@ public class PlayerInteract : MonoBehaviour
         {
             if (Input.GetKeyDown(interactKey) && !doingSomething)
             {
-                movement.enabled = false;
                 doingSomething = true;
                 boatMovement.enabled = true;
                 movement.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
@@ -58,7 +56,6 @@ public class PlayerInteract : MonoBehaviour
             {
                 doingSomething = false;
                 boatMovement.enabled = false;
-                movement.enabled = true;
                 boatMovement = null;
 
             }
@@ -87,13 +84,16 @@ public class PlayerInteract : MonoBehaviour
     private void MovementEnabler()
     {
         if(doingSomething) {
+            movement.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+            movement.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
             movement.enabled = false;
         } else {
+            movement.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
             movement.enabled = true;
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Wheel")
         {
@@ -121,12 +121,12 @@ public class PlayerInteract : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wheel")
         {
-           // boatMovement = null;
+           boatMovement = null;
         }
 
         if (collision.tag == "Canon")
         {
-           // canonScript = null;
+           canonScript = null;
         }
     }
 }

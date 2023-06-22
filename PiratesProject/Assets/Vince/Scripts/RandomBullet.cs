@@ -29,7 +29,7 @@ public class RandomBullet : MonoBehaviour
             Rigidbody2D bulletRigidbody = bulletObj.GetComponent<Rigidbody2D>();
             Vector2 direction = (boatPos.position - spawnPoints[randomPos].position).normalized;
             bulletRigidbody.velocity = direction * bulletSpeed;
-            Destroy(bulletObj, 5f);
+            Destroy(bulletObj, 15f);
         }
     }
 }

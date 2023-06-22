@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7123369066849303699}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 969115465412037766}
   - component: {fileID: 8886483549452436455}
   - component: {fileID: 4140069323714124873}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8529376289850170400}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 935838050279607978}
   - component: {fileID: 2631872076889893199}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cannon box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 496084530027808135}
   - component: {fileID: 7820120325424764660}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: steering wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6503753523227246379}
   - component: {fileID: 7488645479483853840}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,7 +420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 567395928156006276}
   - component: {fileID: 1512868023186597024}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cannon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,7 +503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6854513621512115004}
   - component: {fileID: 614597283961470400}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cannon (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -586,7 +586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8604895445571035793}
   - component: {fileID: 4443931303379260436}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cannon (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,7 +668,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5079776222246428996}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -700,7 +700,7 @@ GameObject:
   - component: {fileID: 1819076549092166692}
   - component: {fileID: 2404827000408070224}
   - component: {fileID: 974564680180642833}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -801,7 +801,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5109502038967477096}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -835,7 +835,7 @@ GameObject:
   - component: {fileID: 8004844049466625884}
   - component: {fileID: 8004844049466625887}
   - component: {fileID: 3705169034491143810}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Left_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -999,7 +999,7 @@ GameObject:
   - component: {fileID: 2473436626229066504}
   - component: {fileID: 3570378734074733552}
   - component: {fileID: 505611335386655623}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -51,7 +51,7 @@ public class CannonScript : MonoBehaviour
 
     void CanonShoot()
     {
-        if (Input.GetKey(shootCtrls) && amountOfBullets > 0)
+        if (Input.GetKey(shootCtrls))
         {
             if (currentTime < fireRate)
             {
@@ -59,8 +59,8 @@ public class CannonScript : MonoBehaviour
             }
             else
             {
-                amountOfBullets--;
                 currentTime = 0;
+                Audiomanager.instance.PlayCanon();
                 GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
                 bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawnPoint.right * bulletSpeed;
             }

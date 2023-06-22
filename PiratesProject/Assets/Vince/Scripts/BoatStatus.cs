@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BoatStatus : MonoBehaviour
 {
-    [SerializeField] float boatHealth = 100f;
+    [SerializeField] public float boatHealth = 100f;
     [SerializeField] RandomHoles randomHoles;
+    [SerializeField] Slider healthSlider;
 
     private void Update()
     {

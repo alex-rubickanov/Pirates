@@ -82,6 +82,7 @@ public class EnemyBoat : MonoBehaviour
                 amountOfBullets--;
                 currentTime = 0;
                 foreach (GameObject bulletSpawnPoint in bulletSpawnPoints) {
+                    Audiomanager.instance.PlayCanon();
                     GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, Quaternion.identity);
                     bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawnPoint.transform.up * bulletSpeed;
                 }
@@ -110,6 +111,7 @@ public class EnemyBoat : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "PlayerBullet") {
+
             health -= 20;
             Destroy(collision.gameObject);
         }
