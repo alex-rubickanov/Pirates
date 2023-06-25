@@ -23,6 +23,7 @@ public class EnemyBoat : MonoBehaviour
     private float currentTime;
     private float timer;
     private float health = 100;
+    [SerializeField] GameObject explosionSfx;
 
     private EnemyManager enemyManager;
 
@@ -120,6 +121,8 @@ public class EnemyBoat : MonoBehaviour
     private void CheckDeath()
     {
         if (health <= 0) {
+            GameObject explosion = Instantiate(explosionSfx, transform.position, Quaternion.identity);
+            Destroy(explosion, 1f);
             Destroy(gameObject);
         }
     }

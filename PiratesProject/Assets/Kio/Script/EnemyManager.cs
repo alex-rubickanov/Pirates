@@ -18,7 +18,7 @@ public class EnemyManager : MonoBehaviour
     }
     private IEnumerator SpawnEnemyC(bool leftOrRight)
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
 
         if(leftOrRight) {
             Instantiate(rightEnemyPrefab, this.transform);

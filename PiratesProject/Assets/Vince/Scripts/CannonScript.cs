@@ -6,6 +6,7 @@ using UnityEngine;
 public class CannonScript : MonoBehaviour
 {
     public bool enableCannon;
+    [SerializeField] GameObject arrowIndicator;
 
     [Header("Cannon Status")]
     [SerializeField] float amountOfBullets = 50f;
@@ -79,10 +80,12 @@ public class CannonScript : MonoBehaviour
     }
     private void OnEnable()
     {
+        arrowIndicator.SetActive(false);
         enableCannon = true;
     }
     private void OnDisable()
     {
+        arrowIndicator.SetActive(true);
         enableCannon = false;
     }
 }

@@ -851,7 +851,7 @@ Transform:
   m_GameObject: {fileID: 8004844049466625859}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 37.4, y: -12.53, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.53987, y: 0.53987, z: 0.53987}
   m_Children:
   - {fileID: 969115465412037766}
   - {fileID: 1819076549092166692}
@@ -941,6 +941,7 @@ MonoBehaviour:
   fireRate: 0.1
   bulletSpeed: 10
   amountOfBullets: 10
+  explosionSfx: {fileID: 4586039703754011902, guid: 626d6b7df6a742c4fb175c205f5c73ea, type: 3}
 --- !u!50 &8004844049466625887
 Rigidbody2D:
   serializedVersion: 4
